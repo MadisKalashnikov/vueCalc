@@ -13,13 +13,17 @@ const updateFoodData = (data) => {
 const toggleAside = () => {
   asideState.value == "closed" ? asideState.value = "open" : asideState.value = "closed"
 }
+
+const closeAside = () => {
+  asideState.value = "closed"
+}
 </script>
 
 <template>
-  <main @click.self="toggleAside">
+  <main @click.stop="closeAside">
     <Form @update-food-data="updateFoodData" :food-data="foodData" />
     <Sidebar @update-food-data="updateFoodData" :food-data="foodData" :class="asideState"/>
-    <button class="hamburger" :class="asideState" @click="toggleAside">
+    <button class="hamburger" :class="asideState" @click.stop="toggleAside">
       <i :class="asideState == 'closed' ? 'pi pi-bars' : 'pi pi-times'"></i>
     </button>
   </main>

@@ -8,6 +8,7 @@ input {
   width: 250px;
   font-size: 30px;
 }
+
 label {
   font-size: 25px;
   margin-bottom: 5px;
@@ -24,18 +25,29 @@ aside {
   position: fixed;
   top: 0;
   right: 0px;
-  z-index: 51;
-  background-color: beige;
-  transition: opacity 0.3s ease-in-out;
+  z-index: 100;
+  background-color: #fbe9d0;
+  transition: all 0.3s ease-in-out;
   opacity: 1;
   padding: 15px;
 }
 
-aside > div {
+aside.closed {
+  opacity: 0;
+  z-index: 0;
+}
+
+aside div {
   margin-bottom: 10px;
   font-weight: 600;
   font-size: 18px;
   position: relative;
+  opacity: 1;
+  transition: opacity 0.7s ease-in;
+}
+aside.closed div {
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
 }
 
 aside > p {
@@ -43,10 +55,17 @@ aside > p {
   font-size: 30px;
   margin-top: 30px;
   margin-bottom: 30px;
+  transition: opacity 0.7s ease-in;
+  opacity: 1;
 }
-aside.closed {
+
+aside.closed > p {
   opacity: 0;
-  z-index: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+.food-list {
+  max-height: 300px;
 }
 
 .hamburger {
@@ -58,6 +77,7 @@ aside.closed {
   color: black;
   transition: all 0.1s ease-in;
 }
+
 .hamburger:hover {
   color: rgba(0, 0, 0, 0.500);
 }
@@ -67,6 +87,10 @@ button[type="submit"] {
   text-align: center;
   font-size: 30px;
   padding: 20px;
+  background-color: #fbe9d0;
+}
+button[type="submit"]:hover {
+  background-color: #b6a48b;
 }
 
 .v-toast.v-toast--bottom {
