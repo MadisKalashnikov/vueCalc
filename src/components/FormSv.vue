@@ -9,19 +9,23 @@ const props = defineProps({
 })
 
 const foodForm = reactive({
-  carbs: Number,
-  grams: Number,
+  carbs: "",
+  grams: "",
   multiplier: 1,
   food: "",
   clearForm: () => {
-    foodForm.carbs = 0
-    foodForm.grams = 0
+    foodForm.carbs = ""
+    foodForm.grams = ""
     foodForm. multiplier = 1
     foodForm.food = ""
   },
 })
 const currentTotal = computed(() => {
-  return (foodForm.grams * foodForm.carbs * foodForm.multiplier / 1000).toFixed(2)
+  if (foodForm.carbs == "" || foodForm.grams == "") {
+    return 0
+  } else {
+    return (foodForm.grams * foodForm.carbs * foodForm.multiplier / 1000).toFixed(2)
+  }
 })
 const toast = useToast()
 
