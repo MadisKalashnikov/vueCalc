@@ -54,28 +54,28 @@ const handleSubmit = () => {
 </script>
 
 <template>
-  <form @submit.prevent="handleSubmit" class="grid justify-center content-center text-lg h-screen auto-rows-max">
-    <div class="grid text-center h-20">
+  <form @submit.prevent="handleSubmit" class="grid justify-center content-center text-lg auto-rows-max">
+    <div class="grid text-center h-25 pt-3">
       <label for="grammid">Grammid</label>
       <input v-model="foodForm.grams" type="number" name="grammid" id="" class="text-center">
     </div>
 
-    <div class="grid text-center h-20">
+    <div class="grid text-center h-25 pt-3">
       <label for="süsivesikud">Süsivesikud</label>
       <input v-model="foodForm.carbs" type="number" name="süsivesikud" id="" class="text-center">
     </div>
-    <div class="grid text-center h-20">
+    <div class="grid text-center h-25 pt-3">
       <label for="korruta">Korruta</label>
       <input v-model="foodForm.multiplier" type="number" name="korruta" id="" class="text-center">
     </div>
 
-    <div class="grid text-center h-20">
+    <div class="grid text-center h-25 pt-3">
       <label for="toit">Toit</label>
       <input v-model="foodForm.food" type="text" name="toit" id="" class="text-center">
     </div>
 
     <p class="text-center mt-5 text-xl yh">
-      {{ currentTotal }} Leivaühikut
+      {{ currentTotal }} ühikut
     </p>
 
     <button type="submit" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">Lisa tabelisse</button>
