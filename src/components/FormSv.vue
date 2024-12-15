@@ -12,12 +12,12 @@ const foodForm = reactive({
   carbs: "",
   grams: "",
   multiplier: 1,
-  food: "",
+  name: "",
   clearForm: () => {
     foodForm.carbs = ""
     foodForm.grams = ""
     foodForm. multiplier = 1
-    foodForm.food = ""
+    foodForm.name = ""
   },
 })
 const currentTotal = computed(() => {
@@ -43,13 +43,13 @@ const handleSubmit = () => {
       carbs: foodForm.carbs,
       grams: foodForm.grams,
       multiplier: foodForm.multiplier,
-      food: foodForm.food,
+      food: foodForm.name == "" ? "Nimetamata" : foodForm.name,
     }
     const newArray = [...props.foodData]
     newArray.push(newFood)
     console.log(newArray)
     emit('update-food-data', newArray)
-    toast.success(`'${foodForm.food}' lisatud`, {
+    toast.success(`'${foodForm.name}' lisatud`, {
       maxtoasts: 3,
     })
     foodForm.clearForm()
@@ -75,7 +75,7 @@ const handleSubmit = () => {
 
     <div class="grid text-center h-25 pt-3">
       <label for="toit">Toit</label>
-      <input v-model="foodForm.food" type="text" name="toit" id="" class="text-center">
+      <input v-model="foodForm.name" type="text" name="toit" id="" class="text-center">
     </div>
 
     <p class="text-center mt-5 text-xl yh">
