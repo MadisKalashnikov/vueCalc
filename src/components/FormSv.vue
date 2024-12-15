@@ -9,8 +9,8 @@ const props = defineProps({
 })
 
 const foodForm = reactive({
-  carbs: 0,
-  grams: 0,
+  carbs: Number,
+  grams: Number,
   multiplier: 1,
   food: "",
   clearForm: () => {
